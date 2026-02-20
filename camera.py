@@ -366,3 +366,8 @@ class BolzanoRadarCamera(Camera):
         self._last_radar_url = None
         self._last_composite = None
 
+
+    @property
+    def icon(self) -> str:
+        """Icona entity."""
+        return "mdi:radar"  # O "mdi:weather-rainy"
