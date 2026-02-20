@@ -254,12 +254,15 @@ class BolzanoRadarCamera(Camera):
 
         url = self.coordinator.frames[self.coordinator.current_frame_index]
 
-        if (
-            url == self._last_radar_url
-            and self._last_composite
-            and not self.coordinator.force_refresh_camera
-        ):
+
+        if url != self._last_radar_url or self.coordinator.force_refresh_camera:
+            self._last_radar_url = None
+            self._last_composite = None
+            self.coordinator.force_refresh_camera = False  # Reset flag
+
+        if self._last_composite is not None:
             return self._last_composite
+
 
         session = async_get_clientsession(self.hass)
 
@@ -329,15 +332,8 @@ class BolzanoRadarCamera(Camera):
             out = io.BytesIO()
             result_rgba.convert("RGB").save(out, format="JPEG", quality=90)
             self._last_composite = out.getvalue()
-            self._last_radar_url = url
-            self.coordinator.force_refresh_camera = False
-
+            self._last_radar_url = url                     
             self._update_attributes()
-            _LOGGER.debug(
-                "Frame %d/%d composto",
-                self.coordinator.current_frame_index + 1,
-                len(self.coordinator.frames),
-            )
             return self._last_composite
 
         except Exception as err:
