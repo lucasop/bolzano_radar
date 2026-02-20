@@ -1,0 +1,11 @@
+{
+  "domain": "bolzano_radar",
+  "name": "Bolzano Radar Piogge",
+  "version": "0.4.0",
+  "documentation": "https://github.com/lucasop/bolzano_radar",
+  "requirements": ["Pillow>=10.0.0", "aiohttp>=3.8.0"],
+  "dependencies": [],
+  "codeowners": ["@lucasop"],
+  "iot_class": "cloud_polling",
+  "config_flow": false
+}

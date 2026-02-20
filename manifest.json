@@ -1,9 +1,0 @@
-{
-  "domain": "bolzano_radar",
-  "name": "Bolzano Radar Meteo",
-  "version": "1.0.3",
-  "platforms": ["camera", "number"],  
-  "config_flow": true,
-  "requirements": ["Pillow>=10.0.0"]
-}
-
