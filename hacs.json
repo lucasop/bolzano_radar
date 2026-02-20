@@ -2,12 +2,5 @@
   "name": "Bolzano Radar Piogge",
   "content_in_root": false,
   "homeassistant": "2024.1.0",
-  "zip_release": true,
-  "filename": "bolzano_radar.zip",
-  "domain": "bolzano_radar",
-  "documentation": "https://github.com/lucasop/bolzano_radar#readme",
-  "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/lucasop/bolzano_radar/issues",
-  "codeowners": ["@lucasop"],
-  "requirements": ["Pillow>=10.0.0", "aiohttp>=3.8.0"]
+  "domain": "bolzano_radar"
 }
