@@ -84,6 +84,20 @@ cards:
 | :-- | :-- | :-- |
 | `bolzano_radar.resume` | - | Riprende auto-play 2 FPS |
 
+## Recorder/Log  eclusione entity
+
+```yaml
+recorder:
+  exclude:
+    entities:
+      - number.bolzano_radar_frame
+
+logbook:
+  exclude:
+    entities:
+      - number.bolzano_radar_frame
+```
+
 ## Screenshot
 
 ## Risoluzione Problemi
