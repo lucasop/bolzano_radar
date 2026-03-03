@@ -2,7 +2,7 @@
 import io
 import logging
 import math
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
 import aiohttp
@@ -148,6 +148,7 @@ class BolzanoRadarCamera(Camera):
             "frame_time": "N/A",
             "current_url": None,
         }
+        self._last_json_refresh: datetime = datetime.min
 
     @property
     def available(self) -> bool:

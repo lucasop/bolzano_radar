@@ -31,17 +31,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 coordinator.force_refresh_camera = True  # ✅ Fix sincronizzazione
                 coordinator.async_set_updated_data(coordinator.last_data)
 
-    async def refresh_json():
-        while True:
-            await asyncio.sleep(scan_interval_min * 60)
-            try:
-                await coordinator.async_refresh()
-                coordinator.is_paused = False
-            except Exception:
-                pass
 
     hass.async_create_background_task(rotate_frames(), "bolzano_rotate")
-    hass.async_create_background_task(refresh_json(), "bolzano_refresh")
 
     async def handle_resume(call) -> None:
         """Service bolzano_radar.resume → riprende auto-play."""

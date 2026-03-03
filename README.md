@@ -84,7 +84,11 @@ cards:
 | :-- | :-- | :-- |
 | `bolzano_radar.resume` | - | Riprende auto-play 2 FPS |
 
+
+
 ## Recorder/Log  eclusione entity
+
+modificare configuration.yaml
 
 ```yaml
 recorder:
@@ -112,6 +116,11 @@ logbook:
 Log: Caricati 37 frames radar → OK!
 ```
 
+| Situazione       | Comportamento                                   |
+| ---------------- | ----------------------------------------------- |
+| Dashboard chiusa | ❌ Nessun download JSON né immagini              |
+| Dashboard aperta | ✅ JSON ogni 5 min, immagini ogni 0.5s con cache |
+| Primo avvio      | ✅ JSON scaricato subito in async_refresh()      |
 
 ## Requisiti
 
